@@ -14,9 +14,14 @@ print('''${"-"*19}User Choice${"-"*20}
 ''');
 stdout.write("Please Enter you choice to login\n");
 int userChoiceVar = int.parse(stdin.readLineSync()!);
+User obj = User();
 if(userChoiceVar == 1){
-  User obj = User();
+ 
   obj.login();
+
+}
+else if(userChoiceVar == 2){
+  obj.register();
 }
 
 }
