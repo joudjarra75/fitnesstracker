@@ -1,8 +1,7 @@
 import 'dart:io';
+import 'functions.dart';
 
 class User{
-  // late String userName ;
-  // late String password  ; 
   File file = File("DB.csv");
   late String _userName;
   late String _password;
@@ -10,7 +9,6 @@ class User{
   late double _weight;
   late double _height;
   late int _age;
-
   // set user (String u) => _userName = u;
   void register(){
     stdout.write("${"-" * 20}We are happy to have you join our healthy community${"-" * 20}\n");
@@ -27,12 +25,24 @@ class User{
     _height = double.parse(stdin.readLineSync()!);
     stdout.write("Enter your age: ");
     _age = int.parse(stdin.readLineSync()!);
-
+  
     if ((_gender == "F" || _gender == "M") && _weight > 30.0 && _height > 100.0 && _age > 12){
-      
       file.writeAsStringSync("$_userName;$_password;$_gender;$_weight;$_height;$_age\n",mode: FileMode.append);
       }
-
+    
+    else{
+      print("Your info not match with constraints");
+      stdout.write("if you want back agin to fill info enter 'B' ");
+      String char = stdin.readLineSync()!;
+      if (char == "B"){
+        register();
+      }
+      else{
+        welcoming();
+        userChoice();
+        // exit(0);
+      }
+    }
       print("your info added successfully");
       print("enter 'B' to back then continue to login");
       String char = stdin.readLineSync()!;
@@ -40,10 +50,13 @@ class User{
         print("Welcome back to login page");
         login();
       }
-
+      else{
+        welcoming();
+        userChoice(); 
+      }
+  
     }
    
-  //check else 
 
 void login(){
    final i = file.readAsLinesSync();
@@ -65,7 +78,6 @@ void login(){
     stdout.write("Please enter password: ");
     _password = stdin.readLineSync()!;
    
-   
     if (userDB["username"].contains(_userName)){
       int index = userDB["username"].indexOf(_userName);
       if (userDB["password"][index] == _password){
@@ -73,12 +85,10 @@ void login(){
       }
       else{
         print("your password incorrect, please try again");
-
       }
     }
     else{
       print("your username not found, please register then come to login");
     }
   }
-
 }

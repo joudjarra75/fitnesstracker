@@ -25,6 +25,3 @@ else if(userChoiceVar == 2){
 }
 
 }
-
-
-
