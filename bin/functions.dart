@@ -10,6 +10,7 @@ void welcoming(){
   print("Welcome to fitness tracker app");
   print("-"*50 +'\n');
  
+
 }
 
 void register(){
@@ -99,13 +100,14 @@ void checkUsers(){
       int index = userDB["username"].indexOf(userNameCheck);
       if (userDB["password"][index] == passwordCheck){
         print("\nWelcome ${userNameCheck} in your profile");
-        print("If you need plan please enter 'P'");
+        print("If you want know your suitable calories please enter 'C'");
         String char = stdin.readLineSync()!;
         
-        if (char == "P" || char == 'p'){
+        if (char == "C" || char == 'c'){
           User obj1 = User(userDB["username"][index], userDB["password"][index], userDB["gender"][index], double.parse(userDB["weight"][index]),double.parse( userDB["height"][index]), int.parse(userDB["age"][index]));
           Plan p = Plan(obj1);
-          p.bmr();
+          p.bmi();
+          // p.bmr();
   }
         
       else{
