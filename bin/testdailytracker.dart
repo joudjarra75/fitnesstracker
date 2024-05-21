@@ -3,16 +3,14 @@ import 'dart:io';
   
 void main(List<String> args) {
    File file1 = File("dailytracker.csv");
-
    double? w1,s1,w2,s2,c1 ;
    print("number of day:");
-   int? day ;
+
+   int day = int.parse(stdin.readLineSync()!);
    Map table  = {"days":[],"w1":[] , "s1":[] , "w2":[] , "s2":[],"c1":[]};
 
   void inputTodaily(){
 
-    // print("number of day:");
-    // day = int.parse(stdin.readLineSync()!);
     print("Enter your weight :");
     w1 = double.parse(stdin.readLineSync()!);
     print("How many hours did you sleep?");
@@ -23,8 +21,6 @@ void main(List<String> args) {
     s2 = double.parse(stdin.readLineSync()!);
     print("How many calories are you today?");
     c1 = double.parse(stdin.readLineSync()!);
- 
-    
      file1.writeAsStringSync("$day;$w1;$s1;$w2;$s2;$c1\n",mode: FileMode.append);
 
   }
@@ -55,26 +51,19 @@ for (int i = 1; i<=7 ;i++){
 
 void checkDays(){
 tableFun();
-day = int.parse(stdin.readLineSync()!);
 if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7){
-  
   if(table["days"].contains(day.toString())){ 
     print("This day already filled");
 }
   else{
-  // print(table['days']);
-  
   inputTodaily();
   }
 
 }
 else{
   print("This number not valid, try again");
-  // day = int.parse(stdin.readLineSync()!);
 }
-
 //dailyTracker();
-
 }
 checkDays();
 
