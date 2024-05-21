@@ -57,13 +57,13 @@ void checkDays(){
 tableFun();
 day = int.parse(stdin.readLineSync()!);
 if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7){
-  List<int> list = table["days"][0];
-  if(table["days"].contains(day)){ //contiens for int
+  
+  if(table["days"].contains(day.toString())){ 
     print("This day already filled");
 }
   else{
   print(table['days']);
-  print(table['days'][0] is String);
+  
   // inputTodaily();
   }
 
