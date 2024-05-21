@@ -7,8 +7,7 @@ class Tracking {
 
   File file1 = File("dailytracker.csv");
    double? w1,s1,w2,s2,c1 ;
-  //  print("number of day:");
-  //  int day = int.parse(stdin.readLineSync()!);
+
    Map table  = {"days":[],"w1":[] , "s1":[] , "w2":[] , "s2":[],"c1":[]};
 
   void inputTodaily(int day){
@@ -54,7 +53,7 @@ for (int i = 1; i<=7 ;i++){
 void checkDays(){
    print("number of day:");
    int day = int.parse(stdin.readLineSync()!);
-  //  tableFun();
+   tableFun();
 if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7){
   if(table["days"].contains(day.toString())){ 
     print("This day already filled");
@@ -67,8 +66,8 @@ if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day =
 else{
   print("This number not valid, try again");
 }
-//dailyTracker();
+
 }
-// checkDays();
+
 
 }

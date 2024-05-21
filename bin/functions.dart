@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dailytracker_class.dart';
 import 'user_class.dart';
 import 'plan_class.dart';
 
@@ -111,6 +112,12 @@ void checkUsers(){
           String charP = stdin.readLineSync()!;
           if(charP == "p" || charP == "P"){
             p.plan();
+            print("IF you want track your plan please enter 'T'");
+            String charT = stdin.readLineSync()!;
+            if(charT == 'T' || charT == 't'){
+              Tracking t = Tracking(obj1);
+              t.checkDays();
+            }
           }
         
           // p.bmr();
