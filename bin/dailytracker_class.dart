@@ -7,12 +7,11 @@ class Tracking {
 
   File file1 = File("dailytracker.csv");
    double? w1,s1,w2,s2,c1 ;
-   int?day;
   //  print("number of day:");
   //  int day = int.parse(stdin.readLineSync()!);
    Map table  = {"days":[],"w1":[] , "s1":[] , "w2":[] , "s2":[],"c1":[]};
 
-  void inputTodaily(){
+  void inputTodaily(int day){
 
     print("Enter your weight :");
     w1 = double.parse(stdin.readLineSync()!);
@@ -53,15 +52,15 @@ for (int i = 1; i<=7 ;i++){
 }
 
 void checkDays(){
-tableFun();
    print("number of day:");
    int day = int.parse(stdin.readLineSync()!);
+  //  tableFun();
 if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7){
   if(table["days"].contains(day.toString())){ 
     print("This day already filled");
 }
   else{
-  inputTodaily();
+  inputTodaily(day);
   }
 
 }
@@ -70,7 +69,6 @@ else{
 }
 //dailyTracker();
 }
-
 // checkDays();
 
 }
