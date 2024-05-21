@@ -76,7 +76,6 @@ void ordaring(){
       userDB['password'].add(value[1]);
       userDB['gender'].add(value[2]);  
       userDB['weight'].add(value[3]);
-      // print(value[3] is double);
       userDB['height'].add(value[4]);
       userDB['age'].add(value[5]);
     }
@@ -96,20 +95,27 @@ void login(){
 void checkUsers(){
   ordaring();
    bool check = userDB["username"].contains(userNameCheck);
+  //  print(check);
    if (check){
       int index = userDB["username"].indexOf(userNameCheck);
       if (userDB["password"][index] == passwordCheck){
-        print("\nWelcome ${userNameCheck} in your profile");
-        print("If you want know your suitable calories please enter 'C'");
+        print("\nWelcome $userNameCheck in your profile");
+        print("If you want to know your appropriate daily calories please enter 'C'");
         String char = stdin.readLineSync()!;
         
         if (char == "C" || char == 'c'){
           User obj1 = User(userDB["username"][index], userDB["password"][index], userDB["gender"][index], double.parse(userDB["weight"][index]),double.parse( userDB["height"][index]), int.parse(userDB["age"][index]));
           Plan p = Plan(obj1);
           p.bmi();
-          // p.bmr();
-  }
+          print("If you want to know your approriate plan please enter 'P'");
+          String charP = stdin.readLineSync()!;
+          if(charP == "p" || charP == "P"){
+            p.plan();
+          }
         
+          // p.bmr();
+  } 
+      }
       else{
         stdout.write("your password incorrect, please try again\n");
         passwordCheck = stdin.readLineSync()!;
@@ -131,7 +137,6 @@ void checkUsers(){
         userChoice();
       }
     }
-}
 }
 
 void userChoice(){

@@ -5,12 +5,12 @@ class Plan {
  User objPlan ;
  Plan(this.objPlan);
  
+ 
   void bmi(){
     double w = objPlan.weight;
     double h = objPlan.hight/100;
     double bmi = w/pow(h, 2);
     double cal = bmr();
-
     if (bmi <= 18){
     print("="*50 +'\n');
     print("""
@@ -54,7 +54,8 @@ To loss weight = ${cal-500} Calories/day
   print("="*50 +'\n'); 
   }
   }
-  double bmr(){
+
+  double bmr(){ // function
     if (objPlan.gender == "F" || objPlan.gender == "f"){
     
       double bmrFemale = 447.593 + (9.247 * objPlan.weight) + (3.098 * objPlan.hight) - (4.330 * objPlan.age);
@@ -65,4 +66,47 @@ To loss weight = ${cal-500} Calories/day
       return bmrMale;
     }
   }
-  }
+
+   String bmiReturnFun(){
+    double w = objPlan.weight;
+    double h = objPlan.hight/100;
+    double bmi = w/pow(h, 2);
+    
+     if (bmi <= 18){
+      return 'Underweight';
+     }
+     else if(bmi > 18.5 && bmi < 24.9){
+      return 'Normal';
+     }
+     else if (bmi > 25 && bmi < 39.9){
+      return 'Overweight';
+     }
+     else{
+      return 'Obese';
+     }
+
+ }
+
+void plan(){
+  String value = bmiReturnFun();
+  double cal = bmr();
+
+  if (value == "Underweight"){
+    print("""I advise people with BMI = underweirght to increase 500 calories daily to gain weight.
+your Calories/day to gain weight = ${cal+500}""");}
+
+else if (value == "Normal"){
+  print("""I advise people with BMI = normal to control their calories to maintain their weight.
+your Calories/day to maintain their weight = $cal""");
+}
+
+else if(value == "Overweight"){
+   print("""I advise people with BMI = Overweight to decrease 300 calories daily to gain weight.
+your Calories/day to loss weight = ${cal-300}""");}
+else{
+   print("""I advise people with BMI = Obese to decrease 500 calories daily to loss weight.
+your Calories/day to loss weight = ${cal-500}""");}
+}
+}
+ 
+  
