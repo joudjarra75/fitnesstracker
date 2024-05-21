@@ -41,16 +41,18 @@ class Tracking {
 
   }
 
-   void dailyTracker(){
-    tableFun();
-print("_____________________________________________________\n|  days  | weight | sleep | water | steps | calories \n_____________________________________________________");
-for (int i = 1; i<=7 ;i++){
+//    void dailyTracker(){
+    
+// print("_____________________________________________________\n|  days  | weight | sleep | water | steps | calories \n_____________________________________________________");
+// for (int i = 1; i<=7 ;i++){
   
-  print("| day $i |  ${table['w1'][i]}  |  ${table['s1'][i]}  |  ${table['w2'][i]}  |  ${table['s2'][i]}  |  ${table['c1'][i]  }\n_____________________________________________________");
-}
-}
+//   print("| day $i |  ${table['w1'][i]}  |  ${table['s1'][i]}  |  ${table['w2'][i]}  |  ${table['s2'][i]}  |  ${table['c1'][i]  }\n_____________________________________________________");
+// }
+// }
 
 void checkDays(){
+  
+
    print("number of day:");
    int day = int.parse(stdin.readLineSync()!);
    tableFun();
@@ -60,6 +62,8 @@ if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day =
 }
   else{
   inputTodaily(day);
+  print("_____________________________________________________\n|  days  | weight | sleep | water | steps | calories \n_____________________________________________________");
+
   }
 
 }
@@ -67,7 +71,11 @@ else{
   print("This number not valid, try again");
 }
 
-}
 
+for (int i = 0; i<=day+1 ;i++){
+  
+  print("| ${table['days'][i]}  |  ${table['w1'][i]}  |  ${table['s1'][i]}  |  ${table['w2'][i]}  |  ${table['s2'][i]}  |  ${table['c1'][i]  }\n_____________________________________________________");
+}
+}
 
 }

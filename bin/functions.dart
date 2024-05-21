@@ -116,6 +116,7 @@ void checkUsers(){
             String charT = stdin.readLineSync()!;
             if(charT == 'T' || charT == 't'){
               Tracking t = Tracking(obj1);
+              // t.dailyTracker();
               t.checkDays();
             }
           }
