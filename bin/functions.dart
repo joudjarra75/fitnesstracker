@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'user_class.dart';
-import 'plan.dart';
+import 'plan_class.dart';
 
 File file = File("DB.csv");
 Map userDB = {'username' : [] , 'password' : [] , 'gender' : [] , 'weight' : [] , 'height' : [] , 'age' : []};
