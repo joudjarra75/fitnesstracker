@@ -72,7 +72,7 @@ else{
 }
 
 
-for (int i = 0; i<=day+1 ;i++){
+for (int i = 0 ; i < 7; i++){
   
   print("| ${table['days'][i]}  |  ${table['w1'][i]}  |  ${table['s1'][i]}  |  ${table['w2'][i]}  |  ${table['s2'][i]}  |  ${table['c1'][i]  }\n_____________________________________________________");
 }

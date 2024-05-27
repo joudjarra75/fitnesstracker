@@ -31,7 +31,7 @@ void register(){
     stdout.write("Enter your age: ");
     int age = int.parse(stdin.readLineSync()!);
 
-    if ((gender == "F" || gender == "M") && weight > 30.0 && height > 100.0 && age > 12){
+    if (((gender == "F" || gender == "f") || (gender == "M" || gender == "m")) && weight > 30.0 && height > 100.0 && age > 12){
       User objUser = User(userName, password, gender, weight, height, age );
       // print("reg test ${obj.user}");
       file.writeAsStringSync("$userName;$password;$gender;$weight;$height;$age\n",mode: FileMode.append);
