@@ -117,7 +117,7 @@ void checkUsers(){
             if(charT == 'T' || charT == 't'){
               Tracking t = Tracking(obj1);
               // t.dailyTracker();
-              t.checkDays();
+              t.checkDays(userNameCheck);
             }
           }
         
